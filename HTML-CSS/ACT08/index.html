@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACT08</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section id="paso1">
+    <h1>Paso 1</h1>
+    <p id="parrafo1" class="texto">Párrafo 1</p>
+    <p class="texto" style="color: orange;">Párrafo 2</p>
+    <p>Párrafo 3</p>
+    <div id="contenedor">
+        <p class="texto">Párrafo dentro de div</p>
+    </div>
+    <div id="anotaciones">
+        <h2>Anotaciones:</h2>
+        <ul>
+            <li>El texto del párrafo 1 se ve rojo porque la regla con el ID <i>#parrafo1</i> tiene más especificidad que la clase <i>.texto</i>.</li>
+            <li>El párrafo 2 aparece en naranja porque el estilo en línea tiene prioridad sobre las reglas CSS externas o internas.</li>
+            <li>El párrafo 3 sale en azul, ya que no tiene otras reglas, así que toma el color definido para la etiqueta <i>p</i> en el CSS.</li>
+            <li>El párrafo dentro del div está en naranja porque las reglas del div con ID <i>#contenedor</i> 
+                tienen más especificidad que la regla del párrafo con clase <i>.texto</i> en el interior de él.</li>
+            <li>Al pasar el ratón por encima del párrafo que no tiene otras especificaciones, este se vuelve verde debido a la regla <i>p:hover</i>.</li>
+            <li>La regla <i>div>p</i> aplica solo al párrafo dentro del div, ya que es hijo directo. Si hubiera párrafos dentro de otros elementos en el div, no se les aplicaría.</li>
+        </ul>
+    </div>
+    </section>
+    <hr>
+    <section id="paso2">
+    <h1>Paso 2</h1>
+    <p id="parrafo1" class="texto">Párrafo 1</p>
+    <p class="texto" style="color: orange;">Párrafo 2</p>
+    <p>Párrafo 3</p>
+    <div id="contenedor">
+        <p class="texto">Párrafo dentro de div</p>
+    </div>
+    <div id="anotaciones2">
+        <h2>Anotaciones:</h2>
+        <ul>
+            <li>El texto del párrafo 1 se ve verde porque la regla con la clase <i>.texto2</i> tiene la declaración <i>!important</i>.</li>
+            <li>El párrafo 2 aparece en verde porque la regla con la clase <i>.texto2</i> tiene la declaración <i>!important</i>.</li>
+            <li>El párrafo 3 sale en azul, ya que no tiene otras reglas, así que toma el color definido para la etiqueta <i>p</i> en el CSS.</li>
+            <li>El párrafo dentro del div está en verde porque la regla con la clase <i>.texto2</i> tiene la declaración <i>!important</i>.</li>
+        </ul>
+    </div>
+    </section>
+    <hr>
+    <h1>Desafío Abierto</h1>
+    <section id="desafioAbierto">
+        <p id="parrafo1" class="texto">Párrafo 1</p>
+    <p class="texto">Párrafo 2</p>
+    <p>Párrafo 3</p>
+    <div id="contenedor">
+        <p class="texto">Párrafo dentro de div</p>
+    </div>
+    </section>
+</body>
+</html>

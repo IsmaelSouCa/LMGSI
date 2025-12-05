@@ -1,0 +1,42 @@
+#paso1 p{
+    color: blue;
+}
+#paso1 #contenedor p{
+    color: orange;
+}
+#paso1 .texto{
+    color: green;
+}
+#paso1 #parrafo1{
+    color: red;
+}
+p:hover{
+    color: purple;
+}
+div>p{
+    background-color: lightgray;
+}
+#paso2 p{
+    color: blue;
+}
+#paso2 #contenedor p{
+    color: orange;
+}
+#paso2 .texto{
+    color: green !important;
+}
+#paso2 #parrafo1{
+    background-color: lightgray;
+}
+
+#desafioAbierto div>p{
+    background-color: yellow;
+}
+
+#desafioAbierto>p:first-child{
+    color: red;
+    text-align: center;
+}
+#desafioAbierto p:hover{
+    color: purple;
+}
