@@ -25,6 +25,10 @@ p {
   border-radius: 4px;
 }
 
+.marcado{
+  background-color: yellow;
+  border: orange;
+}
 
 #lista {
   padding: 0;
