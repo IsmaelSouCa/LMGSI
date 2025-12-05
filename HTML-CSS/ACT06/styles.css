@@ -1,0 +1,22 @@
+ul{
+    margin: 5%;
+    padding: 0;
+    list-style: lower-greek inside;
+    font-family: Arial;
+    font-size: 18px;
+    color: #d40fba;
+    text-align: right;
+}
+li{
+    margin: 10px;
+    padding: 5px;
+    border: 2px solid #b811a1;
+    border-radius: 10px;
+    background-color: #f3cfde;
+    font-weight: bold;
+}
+li:hover{
+    background-color: #d8b2d794;
+    cursor: pointer;
+    color: #ffffff;
+}

@@ -1,0 +1,53 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: var(--color-fondo);
+}
+
+:root{
+    --color-fondo: #FFC857;
+    --color-tarjeta: #fabe47;
+    --color-boton: #ffaa00;
+    --color-boton-animacion: #e29702;
+    --sombra: #b9882598;
+}
+
+.tarjeta {
+    background-color: var(--color-tarjeta);
+    border-radius: 0.35rem;
+    box-shadow: 15px 15px 25px var(--sombra);
+    padding: 3%;
+    text-align: center;
+    max-width: 65%;
+    margin: 20% auto;
+    font-family: Belanosima;
+}
+
+button{
+    background-color: var(--color-boton);
+    border-radius: 0.35rem;
+    box-shadow: 4px 4px 5px var(--sombra);
+    border: none;
+    padding: 3%;
+    width: 50%;
+    
+    animation: boton-escala 2s infinite;
+}
+
+@keyframes boton-escala {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+        background-color: var(--color-boton-animacion);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: #ff7f11;
+}

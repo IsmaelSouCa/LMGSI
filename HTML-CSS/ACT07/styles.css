@@ -1,0 +1,30 @@
+p{
+    font-family: Arial;
+    font-size: 16px;
+    color: blue;
+}
+
+.resaltado{
+    font-weight: bold;
+}
+
+#especial{
+    color: red;
+}
+
+div > p{
+    background-color: lightgray;
+}
+
+h2 + p {
+    margin-top: 10px;
+    border: 2px dashed green;
+}
+
+p:hover{
+    color: green;
+}
+
+div:first-child{
+    border: 1px solid black;
+}

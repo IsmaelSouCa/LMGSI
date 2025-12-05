@@ -1,0 +1,21 @@
+div{
+    width: 700px;
+    border: 7vh solid lightgray;
+}
+p{
+    font-size: 20px;
+    height: 5rem;
+    width: 40em;
+    padding: 5%;
+}
+h1+p{
+    padding: 10%;
+}
+h1{
+    margin-left: 20vw;
+}
+.observaciones{
+    font-size: 18px;
+    font-weight: bold;
+    text-align: justify;
+}
