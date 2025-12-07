@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <title>Práctica DOM</title>
     <link rel="stylesheet" href="./styles.css">
-    <script src="app.js" defer></script>
     
 </head>
 
@@ -15,20 +14,21 @@
 
     <p class="descripcion">Este texto será manipulado.</p>
 
-    <button id="agregar">Agregar elemento</button>
-    <button id="eliminar">Eliminar último</button>
+    <h2>Acciones</h2>
+    <form id="formulario">
+        <input type="text" name="buscar" placeholder="Buscar y marcar elementos">
+        <input type="radio" name="accion" value="marcar" checked> Marcar
+        <input type="radio" name="accion" value="eliminar"> Eliminar
+        <input type="radio" name="accion" value="añadir"> Añadir
+        <button id="aplicar">Aplicar</button>
+    </form>
     
     <ul id="lista">
         <li>Elemento 1</li>
         <li>Elemento 2</li>
         <li>Elemento 3</li>
     </ul>
-
-
-    <form id="formulario">
-        <input type="text" name="nombre" placeholder="Tu nombre">
-        <button>Enviar</button>
-    </form>
+    <button id="eliminar">Eliminar marcados</button>
 
     <script src="app.js"></script>
 </body>
