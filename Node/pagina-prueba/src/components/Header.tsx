@@ -1,23 +1,21 @@
 //import React from 'react'
 
 interface IHeaderProps {
-    username: string;
-    favColor?: string;
+    navidad?: boolean;
 }
 
 export default function Header(props: IHeaderProps) {
 
-    
+    let navidad = 'red';
     
     return (
         <>
-        <header>
-          <h1>Hola,
-            <span 
-                style={{
-                    color: props.favColor || 'green'
-                }}
-            >{props.username?props.username: "Iniciar sesión"}</span>
+        <header
+            style={{
+                backgroundColor: props.navidad? navidad: 'black'
+            }}
+        >
+          <h1>MMStore
             </h1>
         </header>
         </>
