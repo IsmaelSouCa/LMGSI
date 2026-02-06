@@ -37,12 +37,14 @@ function renderizar() {
     })
 }
 
-function actualizarContador() {
-    const marcadas = estado.filter((t) => t.marked).length
-    const total = estado.length
-    if (contadorElement) {
-        contadorElement.textContent = `${marcadas}/${total} seleccionados`
-    }
+function actualizarContador(){
+    let marcados = 0
+    estado.forEach((item) => {
+        if (item.marked){
+            marcados++
+        }
+    })
+    contadorElement.textContent = `${marcados}/${estado.length} seleccionados`
 }
 
 /*****************************
@@ -73,6 +75,7 @@ lista.addEventListener("click", (event) => {
         if (tarea) {
             tarea.marked = !tarea.marked
             renderizar()
+            actualizarContador()
         }
     }
 })
@@ -82,46 +85,67 @@ lista.addEventListener("click", (event) => {
 *****************************/
 btnEliminarCompletadas.addEventListener("click", (e) => {
     e.preventDefault()
+    let hayCompletadas = false
+    estado.forEach((item) => {
+        if (item.marked){
+            hayCompletadas = true
+        }
+    })
+    if (!hayCompletadas){
+        return
+    }
     const seguro = confirm("¿QUIERES?")
     if (!seguro){return}
     estado = estado.filter((t) => !t.marked)
 
     renderizar()
+    actualizarContador()
 })
 
 /*****************************
 7. Filtrar elementos
 *****************************/
-function mostrarTodas() {
+function marcarBotonActivo(btn){
+    [btnTodas, btnCompletadas, btnPendientes].forEach((b) => {
+        b.classList.toggle("activo", b === btn)
+    })
+}
+
+function mostrarTodas(){
     marcarBotonActivo(btnTodas)
     lista.querySelectorAll("li").forEach((li) => {
         li.classList.remove("ocultar")
     })
 }
 
-function mostrarCompletadas() {
+function mostrarCompletadas(){
     marcarBotonActivo(btnCompletadas)
     lista.querySelectorAll("li").forEach((li) => {
-        li.classList.toggle("ocultar", !li.classList.contains("completada"));
+        li.classList.toggle("ocultar", !li.classList.contains("completada"))
     })
 }
 
-function mostrarPendientes() {
+function mostrarPendientes(){
     marcarBotonActivo(btnPendientes)
     lista.querySelectorAll("li").forEach((li) => {
         li.classList.toggle("ocultar", li.classList.contains("completada"))
     })
 }
 
-function marcarBotonActivo(btn) {
-    [btnTodas, btnCompletadas, btnPendientes].forEach((b) => {
-        b.classList.toggle("activo", b === btn)
-    })
-}
+btnTodas.addEventListener("click", (e) => {
+    e.preventDefault()
+    mostrarTodas()
+})
 
-btnTodas.addEventListener("click", mostrarTodas)
-btnCompletadas.addEventListener("click", mostrarCompletadas)
-btnPendientes.addEventListener("click", mostrarPendientes)
+btnCompletadas.addEventListener("click", (e) => {
+    e.preventDefault()
+    mostrarCompletadas()
+})
+
+btnPendientes.addEventListener("click", (e) => {
+    e.preventDefault()
+    mostrarPendientes()
+})
 
 /*****************************
 8. Inicializar
@@ -184,5 +208,36 @@ btnEliminarCompletadas.addEventListener("click", () => {
     renderizar()
     actualizarContador()
 })
+
+function mostrarTodas() {
+    marcarBotonActivo(btnTodas)
+    lista.querySelectorAll("li").forEach((li) => {
+        li.classList.remove("ocultar")
+    })
+}
+
+function mostrarCompletadas() {
+    marcarBotonActivo(btnCompletadas)
+    lista.querySelectorAll("li").forEach((li) => {
+        li.classList.toggle("ocultar", !li.classList.contains("completada"));
+    })
+}
+
+function mostrarPendientes() {
+    marcarBotonActivo(btnPendientes)
+    lista.querySelectorAll("li").forEach((li) => {
+        li.classList.toggle("ocultar", li.classList.contains("completada"))
+    })
+}
+
+function marcarBotonActivo(btn) {
+    [btnTodas, btnCompletadas, btnPendientes].forEach((b) => {
+        b.classList.toggle("activo", b === btn)
+    })
+}
+
+btnTodas.addEventListener("click", mostrarTodas)
+btnCompletadas.addEventListener("click", mostrarCompletadas)
+btnPendientes.addEventListener("click", mostrarPendientes)
     */
    
