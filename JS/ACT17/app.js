@@ -7,7 +7,7 @@ const btnTodas = document.querySelector("#mostrarTodas")
 const btnCompletadas = document.querySelector("#mostrarCompletadas")
 const btnPendientes = document.querySelector("#mostrarPendientes")
 const btnEliminarCompletadas = document.querySelector("#eliminarCompletadas")
-const contadorElement = document.querySelector("#contador") // Asegúrate que existe en HTML
+const contadorElement = document.querySelector("#contador")
 
 /*****************************
 2. Estado inicial
@@ -15,21 +15,22 @@ const contadorElement = document.querySelector("#contador") // Asegúrate que ex
 let estado = [
     { id: 1, text: "Programar", marked: false },
     { id: 2, text: "Ir a clase", marked: false },
-    { id: 3, text: "Ganar dinero", marked: false }
+    { id: 3, text: "Ganar dinero", marked: false },
+    { id: 4, text: "Pajet", marked: true}
 ]
 
-let nextId = 4
+let nextId = 5
 
 /*****************************
 3. Funciones de renderizado
 *****************************/
 function renderizar() {
     lista.innerHTML = ""
-    estado.forEach((tarea) => {
-        const li = document.createElement("li")
-        li.textContent = tarea.text
-        li.dataset.id = tarea.id
-        if (tarea.marked) {
+    estado.forEach((item) => {
+        let li = document.createElement("li")
+        li.dataset.id = item.id
+        li.textContent = item.text
+        if (item.marked) {
             li.classList.add("completada")
         }
         lista.appendChild(li)
@@ -51,14 +52,13 @@ form.addEventListener("submit", (e) => {
     e.preventDefault()
     const tarea = form.tarea.value.trim()
 
-    if (tarea === "") {
-        alert("No puedes añadir una tarea vacía.")
+    if (tarea === ""){
+        alert("No puedes añadir una tarea vacía")
         return
     }
 
-    estado.push({ id: nextId++, text: tarea, marked: false })
+    estado.push({id: nextId++, text: tarea, marked: false})
     renderizar()
-    actualizarContador()
     form.reset()
     form.tarea.focus()
 })
@@ -67,13 +67,12 @@ form.addEventListener("submit", (e) => {
 5. Click en tareas para marcar/desmarcar
 *****************************/
 lista.addEventListener("click", (event) => {
-    if (event.target.matches("li")) {
+    if (event.target.matches("li")){
         const id = parseInt(event.target.dataset.id)
         const tarea = estado.find((t) => t.id === id)
         if (tarea) {
             tarea.marked = !tarea.marked
             renderizar()
-            actualizarContador()
         }
     }
 })
@@ -81,17 +80,13 @@ lista.addEventListener("click", (event) => {
 /*****************************
 6. Eliminar completadas
 *****************************/
-btnEliminarCompletadas.addEventListener("click", () => {
-    const completadas = estado.filter((t) => t.marked)
-
-    if (completadas.length === 0) return
-
-    const seguro = confirm("¿Eliminar todas las tareas completadas?")
-    if (!seguro) return
-
+btnEliminarCompletadas.addEventListener("click", (e) => {
+    e.preventDefault()
+    const seguro = confirm("¿QUIERES?")
+    if (!seguro){return}
     estado = estado.filter((t) => !t.marked)
+
     renderizar()
-    actualizarContador()
 })
 
 /*****************************
@@ -134,3 +129,60 @@ btnPendientes.addEventListener("click", mostrarPendientes)
 renderizar()
 actualizarContador()
 mostrarTodas()
+
+/*
+function renderizar() {
+    lista.innerHTML = ""
+    estado.forEach((tarea) => {
+        const li = document.createElement("li")
+        li.textContent = tarea.text
+        li.dataset.id = tarea.id
+        if (tarea.marked) {
+            li.classList.add("completada")
+        }
+        lista.appendChild(li)
+    })
+}
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault()
+    const tarea = form.tarea.value.trim()
+
+    if (tarea === "") {
+        alert("No puedes añadir una tarea vacía.")
+        return
+    }
+
+    estado.push({ id: nextId++, text: tarea, marked: false })
+    renderizar()
+    actualizarContador()
+    form.reset()
+    form.tarea.focus()
+})
+
+lista.addEventListener("click", (event) => {
+    if (event.target.matches("li")) {
+        const id = parseInt(event.target.dataset.id)
+        const tarea = estado.find((t) => t.id === id)
+        if (tarea) {
+            tarea.marked = !tarea.marked
+            renderizar()
+            actualizarContador()
+        }
+    }
+})
+
+btnEliminarCompletadas.addEventListener("click", () => {
+    const completadas = estado.filter((t) => t.marked)
+
+    if (completadas.length === 0) return
+
+    const seguro = confirm("¿Eliminar todas las tareas completadas?")
+    if (!seguro) return
+
+    estado = estado.filter((t) => !t.marked)
+    renderizar()
+    actualizarContador()
+})
+    */
+   
