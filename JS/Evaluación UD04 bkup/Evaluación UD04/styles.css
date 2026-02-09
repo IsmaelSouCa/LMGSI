@@ -1,0 +1,508 @@
+/* ===== VARIABLES ===== */
+:root {
+    /* Color de fondo y texto */
+    --background-color: #e3e3e3;
+    --text-color: #30343F;
+
+    /* Color primario */
+    --primary-color: #111;
+    --primary-text-color: #FAFAFF;
+
+    /* Color secundario */
+    --secondary-text-color: #E4D9FF;
+
+    /* Color de surface (superficie 1-2-3) */
+    --surface-color: #FAFAFF;
+    --surface-text-color: var(--text-color);
+
+    --accent-color-1: #273469;
+    --accent-text-color: #FAFAFF;
+    --accent-color-2: #1E2749;
+
+
+}
+
+/* ===== RESET SIMPLE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--background-color);
+    color: var(--text-color);
+
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+
+}
+
+header {
+    min-height: 10vh;
+}
+
+main {
+    min-height: 80vh;
+}
+
+footer {
+    min-height: 10vh;
+}
+
+/* ===== HEADER ===== */
+header {
+    background: #111;
+    color: #fff;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+}
+
+.logo {
+    font-size: 1.6em;
+    font-weight: bold;
+}
+
+.logo a {
+    color: var(--primary-text-color);
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+nav a {
+    color: var(--primary-text-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover,
+.logo a:hover {
+    /* mismo color, 80% de opacidad */
+    color: rgb(from var(--primary-text-color) r g b / 80%);
+}
+
+/* ===== FIN HEADER ===== */
+
+/* ===== BANNER PRINCIPAL ===== */
+.banner {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(120deg, var(--accent-color-1), var(--accent-color-2));
+    color: white;
+}
+
+.banner h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.banner p {
+    margin-bottom: 20px;
+}
+
+
+
+/* ===== FIN BANNER PRINCIPAL ===== */
+
+/* ===== PRODUCTOS ===== */
+section {
+    padding: 28px 40px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.productos-grid {
+    display: grid;
+    /* Separación de 25 píxeles */
+    gap: 25px;
+    /*
+    Distribuir automáticamente los productos
+    auto-fit: ajustar el número de columnas según el espacio disponible
+    minmax(250px, 1fr): cada columna tendrá un tamaño mínimo de 250px y un tamaño máximo*/
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+
+
+/* ===== BUTTONS WITH ICONS ===== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    /* Reduced gap slightly for better proportions */
+    padding: 10px 20px;
+    text-align: center;
+    background: var(--primary-color);
+    color: var(--primary-text-color);
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: 500;
+    /* Added font weight match */
+    transition: 0.3s ease;
+}
+
+.btn svg {
+    width: 18px;
+    /* Slightly smaller for elegance */
+    height: 18px;
+    fill: currentColor;
+}
+
+/* ===== CART TICKET STYLES ===== */
+.cart {
+    background: #fff;
+    /* Pure white for better contrast as a ticket */
+    margin: 60px auto;
+    padding: 40px;
+    max-width: 500px;
+    /* Slightly narrower for receipt feel */
+    border-radius: 2px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    /* Softer shadow */
+    position: relative;
+
+    /* Improved Ticket jagged edge effect */
+    background-image: radial-gradient(circle at 0 0px, transparent 0px, #fff 0px);
+    /* Reset top */
+
+    border-top: 5px solid var(--accent-color-1);
+    /* Accent bar at top */
+}
+
+/* Zig-zag border hack using pseudo-element could be complex, sticking to clean dashed lines for now or simple clean edges */
+
+.cart-header {
+    text-align: center;
+    border-bottom: 2px dashed #eee;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+}
+
+.cart-header h2 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cart-header p {
+    color: #888;
+    font-size: 0.85rem;
+    font-family: monospace;
+    /* Monospace for date looks like a receipt */
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    /* More breathing room */
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #eee;
+    /* Dashed separator */
+}
+
+.cart-item img {
+    width: 80px;
+    /* Larger image as requested */
+    height: 80px;
+    object-fit: contain;
+    /* Ensure whole product is seen */
+    border-radius: 8px;
+    background: #f9f9f9;
+    padding: 5px;
+    border: 1px solid #eee;
+}
+
+.cart-item-info {
+    flex: 1;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cart-item-title {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.2;
+}
+
+.cart-item-price {
+    font-size: 0.9em;
+    color: #666;
+    font-family: monospace;
+    /* Monospace numbers */
+}
+
+.cart-item-total {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--accent-color-1);
+    font-family: monospace;
+    min-width: 80px;
+    text-align: right;
+}
+
+.cart-footer {
+    border-top: 2px dashed #333;
+    margin-top: 30px;
+    padding-top: 25px;
+    display: block;
+    /* Changed for stacking summary and discount */
+}
+
+/* ===== EXAM UI FEATURES ===== */
+
+/* 1. Delete Button (X) */
+.btn-delete {
+    background: transparent;
+    border: none;
+    color: #ccc;
+    font-size: 1.5rem;
+    font-weight: 300;
+    cursor: pointer;
+    padding: 0 10px;
+    margin-right: 5px;
+    line-height: 1;
+    transition: 0.3s;
+}
+
+.btn-delete:hover {
+    color: #ff4d4d;
+    transform: scale(1.2);
+}
+
+/* 2. Discount Section */
+.cart-discount {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px dashed #eee;
+}
+
+.cart-discount input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.cart-discount input:focus {
+    border-color: var(--primary-color);
+}
+
+.cart-discount button {
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: var(--primary-text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+/* 3. Summary Lines */
+.cart-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cart-summary-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    color: #666;
+}
+
+.cart-summary-line span:last-child {
+    font-family: monospace;
+}
+
+.total-line {
+    margin-top: 10px;
+    padding-top: 15px;
+    border-top: 2px dashed #333;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #000;
+}
+
+.total-line span:last-child {
+    font-size: 1.6rem;
+}
+
+
+.producto {
+    background: var(--surface-color);
+    color: var(--surface-text-color);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.producto img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+.precio {
+    font-size: 1.4em;
+    color: var(--accent-color-1);
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.oferta {
+    position: relative;
+}
+
+.etiqueta {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--accent-color-1);
+    color: var(--accent-text-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ===== OFERTAS CARDS ===== */
+.productos-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.categoria-card {
+    width: 100%;
+}
+
+.categoria-card div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+
+    width: 100%;
+
+    height: 200px;
+    overflow: hidden;
+    color: var(--surface-text-color);
+    text-decoration: none;
+    border-radius: 10px;
+    background: var(--surface-color);
+}
+
+.categoria-card div div:first-child {
+    width: 40%;
+    height: 100%;
+}
+
+.categoria-card div img {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+}
+
+.categoria-card div div:last-child {
+    width: 60%;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.producto,
+.categoria-card {
+    /* mismo color, 20% de opacidad */
+    box-shadow: 10px 10px 10px rgb(from var(--primary-color) r g b / 20%);
+
+}
+
+.producto:hover,
+.categoria-card:hover {
+    transition: all 0.3s ease-in-out;
+    box-shadow: 15px 15px 15px rgb(from var(--primary-color) r g b / 20%);
+    transform: scale(1.02);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    background: var(--primary-color);
+    color: var(--primary-text-color);
+    padding: 15px;
+    margin-top: 40px;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ==== RESPONSIVE ==== */
+/* ===== Tablets (>= 600px): 2 columnas ===== */
+@media (min-width: 600px) {
+    .categoria-card {
+        width: calc(50% - 20px);
+    }
+}
+
+/* ===== Escritorio (>= 900px): 3 columnas ===== */
+@media (min-width: 900px) {
+    .categoria-card {
+        width: calc(33.33% - 20px);
+    }
+
+    .categoria-card div div:first-child {
+        width: 50%;
+    }
+
+    .categoria-card div div:last-child {
+        width: 50%;
+
+    }
+}

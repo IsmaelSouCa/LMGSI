@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMStore - Inicio</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Añadir fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                MMStore
+            </a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="./index.html#ofertas-flash">Ofertas flash</a></li>
+                <li><a href="#">Sobre nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+
+        <!-- BANNER BLACK FRIDAY -->
+        <section class="banner">
+            <h1>¡Black Friday en Martínez Montañés!</h1>
+            <p>Descuentos de hasta el <span class="porcentaje">70%</span> en memorias RAM</p>
+            <a class="btn" href="#ofertas">Ver todas las ofertas</a>
+        </section>
+
+        <!-- PRODUCTOS DESTACADOS -->
+        <section class="destacados section-container">
+            <h2 id="ofertas-flash">Ofertas flash</h2>
+
+            <div id="productos" class="productos-grid">
+
+                <!-- <article class="producto">
+                    <img src="assets/ram.webp"
+                        alt="Memoria RAM Forgeon Cyclone PLUS V2 DDR4 3200 MHz 16GB 2x8GB CL16 Negra">
+                    <h3>Memoria RAM Forgeon Cyclone PLUS V2 DDR4 3200 MHz 16GB 2x8GB CL16 Negra</h3>
+                    <p class="precio">80,95€</p>
+                    <a href="./detail.html" class="btn">Comprar</a>
+                </article>
+
+                <article class="producto">
+                    <img src="assets/1151-samsung.webp" alt="Samsung Q7F TV">
+                    <h3>Samsung Q7F QE65Q7FAAU 65" QLED 4K Ultra HD Smart TV WiFi Negro</h3>
+                    <p class="precio">519,00€</p>
+                    <a href="./detail.html" class="btn">Comprar</a>
+                </article>
+
+                <article class="producto oferta">
+                    <span class="etiqueta">NUEVO</span>
+                    <img src="assets/apple-iphone-air.webp" alt="Apple iPhone Air 256GB Negro Espacial">
+                    <h3>Apple iPhone Air 256GB Negro Espacial</h3>
+                    <p class="precio">1099€</p>
+                    <a href="./detail.html" class="btn">Comprar</a>
+                </article> -->
+            </div>
+        </section>
+
+
+        <section class="cart">
+            <div class="cart-header">
+                <h2>TICKET DE COMPRA</h2>
+                <p id="date-cart"></p>
+            </div>
+            <div class="cart-items">
+                <div class="empty-cart">Tu carrito está vacío</div>
+            </div>
+            <div class="cart-footer">
+                <span>TOTAL</span>
+                <span id="total-cart"></span>
+            </div>
+        </section>
+
+        <!-- OFERTAS -->
+        <section class="ofertas section-container">
+            <h2 id="ofertas">Ofertas <span>Black Fraiday</span></h2>
+            <div class="productos-flex">
+
+                <article class="categoria-card">
+                    <div>
+                        <div>
+                            <img src="assets/ordenador.webp" alt="Ordenadores">
+                        </div>
+                        <div>
+                            <h3>Ordenadores</h3>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="categoria-card">
+                    <div>
+                        <div>
+                            <img src="assets/hogar.webp" alt="Hogar">
+                        </div>
+                        <div>
+                            <h3>Hogar</h3>
+                        </div>
+                    </div>
+                </article>
+                <article class="categoria-card">
+                    <div>
+                        <div>
+                            <img src="assets/ram.webp" alt="RAM">
+                        </div>
+                        <div>
+                            <h3>RAM</h3>
+                        </div>
+                    </div>
+                </article>
+                <article class="categoria-card">
+                    <div>
+                        <div>
+                            <img src="assets/sonido.webp" alt="Sonido">
+                        </div>
+                        <div>
+                            <h3>Sonido</h3>
+                        </div>
+                    </div>
+                </article>
+                <article class="categoria-card">
+                    <div>
+                        <div>
+                            <img src="assets/1151-samsung.webp" alt="Televisión">
+                        </div>
+                        <div>
+                            <h3>Televisión</h3>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>2025 MMStore - Todos los derechos reservados</p>
+    </footer>
+
+
+    <script src="examen.js" defer></script>
+    <script src="app.js" defer></script>
+</body>
+
+</html>
