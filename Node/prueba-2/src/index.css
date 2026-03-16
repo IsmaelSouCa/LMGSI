@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* Custom CSS Variables */
+:root {
+  --color-bg: #f5f0e8;
+  --color-surface: #fffdf7;
+  --color-primary: #2c1810;
+  --color-accent: #b5451b;
+  --color-accent-gold: #c9a84c;
+  --color-text: #1a0f0a;
+  --color-muted: #7a6a5e;
+  --color-border: #e0d5c5;
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Lato', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  min-height: 100vh;
+}
+
+/* Grain texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Book card hover effect */
+.book-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.book-card:hover {
+  transform: translateY(-6px) rotate(0.5deg);
+  box-shadow: 0 20px 40px rgba(44, 24, 16, 0.18);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-accent-gold); border-radius: 3px; }
