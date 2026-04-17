@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "producto": "Monitor",
+    "precio": 350.00,
+    "disponible": true,
+    "caracteristicas": [
+      "34 pulgadas",
+      "IPS",
+      "144Hz"
+    ]
+  },
+    {
+        "id": 2,
+        "producto": "Teclado",
+        "precio": 120.00,
+        "disponible": true,
+        "caracteristicas": [
+        "Mecánico",
+        "RGB",
+        "Switches Cherry MX Red"
+        ]
+    },
+    {
+        "id": 3,
+        "producto": "Mouse",
+        "precio": 80.00,
+        "disponible": false,
+        "caracteristicas": [
+        "Óptico",
+        "16000 DPI",
+        "RGB"
+        ]
+    }  
+]
