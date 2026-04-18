@@ -25,7 +25,7 @@ export const WinesDashboard: React.FC = () => {
     }, []);
 
     if (loading) {
-        return <div className="text-blue-500 text-center">Cargando vinos...</div>;
+        return <div className="text-blue-500 text-center ">Cargando vinos...</div>;
     }
 
     if (error) {
@@ -33,21 +33,34 @@ export const WinesDashboard: React.FC = () => {
     }
 
     return (
-        <div className="p-10 bg-gray-200">
-            <h1 className="text-2xl font-bold mb-4 text-center">Dashboard de Vinos</h1>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="p-10 bg-amber-50 min-h-screen font-serif">
+            <h1 className="text-4xl mb-2 text-center text-slate-900">Bodega de Ismael</h1>
+            <h2 className="text-sm text-center mb-12 text-amber-700">SELECCIÓN EXCLUSIVA</h2>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {wines.map((wine) => (
-                <li key={wine.id} className="p-6 rounded shadow hover:shadow-lg transition flex justify-between items-center bg-white h-auto">
-                <img src={wine.image} alt={wine.wine} className="w-16 h-full object-cover rounded hover:scale-110 transition" />
-                <div className="flex flex-col justify-between ml-4 text-right">
-                    <h2 className="text-xl font-bold text-gray-800 mb-2">{wine.wine}</h2>
-                    <p className="text-lg font-semibold text-gray-600">{wine.winery}</p>
-                    <p className="text-md text-gray-500">Ubicación: {wine.location}</p>
-                    <p className="text-md text-gray-500">Calificación: {wine.rating.average} ({wine.rating.reviews} reseñas)</p>
-                </div>
+                    <li key={wine.id} className="group border border-gray-100 p-8 rounded shadow-sm 
+                        hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col
+                        duration-500 items-center bg-white h-auto text-center justify-between">
+                        <div className="h-64 mb-6 flex items-center justify-center">
+                            <img src={wine.image} alt={wine.wine} className="w-full h-full object-contain 
+                                group-hover:scale-110 transition-all duration-600" />
+                        </div>
+                        <div className="flex flex-col items-center justify-between w-full">
+                            <p className="text-sm uppercase text-stone-400 font-sans">{wine.winery}</p>
+                            <h2 className="text-xl font-semibold text-slate-900 min-h-20 mb-2 flex items-center">{wine.wine}</h2>
+                            <div className="w-16 h-px bg-amber-700 mb-6"></div>
+                            <p className="text-xs text-stone-500 font-sans italic mb-4">Ubicación: {wine.location}</p>
+                            <div className="flex justify-between min-w-auto w-full">
+                                <p className='text-amber-700 text-sm'>★ {wine.rating.average}</p>
+                                <p className='text-stone-500 text-sm'>{wine.rating.reviews}</p>
+                            </div>
+                        </div>
                 </li>
             ))}
             </ul>
         </div>
+        
+
+
     );
 }
