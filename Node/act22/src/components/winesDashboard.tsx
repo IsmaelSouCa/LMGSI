@@ -35,7 +35,7 @@ export const WinesDashboard: React.FC = () => {
     return (
         <div className="p-10 bg-amber-50 min-h-screen font-serif">
             <h1 className="text-4xl mb-2 text-center text-slate-900">Bodega de Ismael</h1>
-            <h2 className="text-sm text-center mb-12 text-amber-700">SELECCIÓN EXCLUSIVA</h2>
+            <h2 className="text-sm text-center mb-12 text-amber-700">SELECCIÓN EXCLUSIVA <br />https://bodega-inky.vercel.app/</h2>
             <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {wines.map((wine) => (
                     <li key={wine.id} className="group border border-gray-100 p-8 rounded shadow-sm 
